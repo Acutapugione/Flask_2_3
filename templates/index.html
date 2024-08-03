@@ -1,0 +1,9 @@
+{% extends '_base.html' %}
+{% block main %}
+{% import '_macro.html' as macros %}
+    
+<form action="" method="post">
+    <p>{{ macros.input('username', ) }}</p>
+    <p>{{ macros.input('password', type='password') }}</p>
+</form>
+{% endblock %}

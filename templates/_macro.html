@@ -1,0 +1,20 @@
+{% macro input(name, value='', padding=3, type='text', size=20) -%}
+<div class="input-group my-{{padding}}">
+    <span class="input-group-text" id="{{ name }}" for="{{ name }}">{{ name|title }}</span>
+    <input placeholder="{{ name|title }}" aria-label="{{name|title}}" aria-describedby="{{ name }}" class="form-control" type="{{ type }}" name="{{ name }}" id="{{ name }}" value="{{
+        value|e }}" size="{{ size }}">
+</div>
+{% endmacro %}
+
+
+{% macro add_badge(student, students) %}
+    {% set high_score = students|map(attribute="score")|max %}
+
+    {% if student.score == high_score %}
+    ⭐️
+    {% elif student.score > 80 %}
+    🙂
+    {% else %}
+    🙁
+    {% endif %}
+{% endmacro %}

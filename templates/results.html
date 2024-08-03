@@ -1,0 +1,13 @@
+{% extends '_base.html' %}
+{% block main %}
+
+    {% import '_macro.html' as macros %}
+    {% set max_score = 100 %}
+    {% for student in students|sort(attribute="name")|sort(attribute="score", reverse=True) %}
+        <li>
+            {{ macros.add_badge(student, students) }}
+            <em>{{ student.name }}:</em> {{ student.score }}/{{ max_score }}
+        </li>
+    {% endfor %}
+
+{% endblock %}
